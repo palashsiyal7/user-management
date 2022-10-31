@@ -1,5 +1,7 @@
 * {
   margin: 0;
+  
+  
 }
 .navbar-light {
   color: azure;
@@ -72,3 +74,6 @@ p{
   .forgot-password a {
     color: #167bff;
   }
+
+
+  

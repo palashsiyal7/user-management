@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Alert } from "react-bootstrap";
 import Home from "./Home";
+import '../index.css'
+import { Button, TextField } from "@mui/material";
 
 function Login() {
   const [emaillog, setEmaillog] = useState(" ");
@@ -13,10 +15,10 @@ function Login() {
   function handleLogin(e) {
     e.preventDefault();
     let pass = localStorage
-      .getItem("sanskarPassword")
+      .getItem("palashPassword")
       .replace(/"/g, "");
-    let mail = localStorage.getItem("sanskarEmail").replace(/"/g, "");
-    
+    let mail = localStorage.getItem("palashEmail").replace(/"/g, "");
+
 
     if (!emaillog || !passwordlog) {
       setFlag(true);
@@ -30,33 +32,29 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className="neo">
       {home ? (
         <form onSubmit={handleLogin}>
-          <h3>LogIn</h3>
+          <h3>Log In Here!</h3>
           <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
+            <br></br>
+            <TextField id="outlined-basic" label="E-Mail" variant="outlined" type="email"
               className="form-control"
-              placeholder="Enter email"
-              onChange={(event) => setEmaillog(event.target.value)}
-            />
-          </div>
 
+              onChange={(event) => setEmaillog(event.target.value)} />
+
+          </div>
+          <br></br>
           <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-              onChange={(event) => setPasswordlog(event.target.value)}
-            />
-          </div>
 
-          <button type="submit" className="btn btn-dark btn-lg btn-block">
-            Login
-          </button>
+            <TextField id="outlined-basic" label="Password" variant="outlined" type="password"
+              className="form-control"
+
+              onChange={(event) => setPasswordlog(event.target.value)} />
+
+          </div>
+          <br></br  >
+          <Button variant="contained" type="submit" className="btn btn-dark btn-lg btn-block">Login</Button>
 
           {flag && (
             <Alert color="primary" variant="warning">
