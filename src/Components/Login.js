@@ -35,7 +35,7 @@ function Login() {
     <div className="neo">
       {home ? (
         <form onSubmit={handleLogin}>
-          <h3>Log In Here!</h3>
+          <h3>Please Log In</h3>
           <div className="form-group">
             <br></br>
             <TextField id="outlined-basic" label="E-Mail" variant="outlined" type="email"
@@ -58,7 +58,7 @@ function Login() {
 
           {flag && (
             <Alert color="primary" variant="warning">
-              Fill correct Info else keep trying.
+              Please try Again !
             </Alert>
           )}
         </form>

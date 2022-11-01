@@ -16,7 +16,7 @@ function Registration() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
+  // const [phone, setPhone] = useState("");
   const [profession, setProfession] = useState("");
   // const [gender, setGender] = useState("");
 
@@ -28,7 +28,7 @@ function Registration() {
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    if (!name || !email || !password || !phone || !profession) {
+    if (!name || !email || !password || !profession) {
       setFlag(true);
     } else {
       setFlag(false);
@@ -57,37 +57,36 @@ function Registration() {
         {" "}
         {login ? (
           <form onSubmit={handleFormSubmit}>
-            <h2></h2>
-            <Typography variant="h2" gutterBottom>
-              Register Here!            </Typography>
+
+            <Typography variant="h4" gutterBottom>
+              Register Here            </Typography>
 
 
             <div className="form-group">
 
 
-              <TextField id="outlined-basic" name="name" className="form-control" label="Enter Full Name" variant="outlined" onChange={(event) => setName(event.target.value)} />
+              <TextField id="outlined-basic" name="name" className="form-control" label="Enter Full Name" required variant="outlined" onChange={(event) => setName(event.target.value)} />
 
             </div>
 
             <div className="form-group">
               <br></br>
-              <TextField id="outlined-basic" className="form-control" type="email" label="Enter Email" variant="outlined" onChange={(event) => setEmail(event.target.value)} />
+              <TextField id="outlined-basic" className="form-control" type="email" label="Enter Email" required variant="outlined" onChange={(event) => setEmail(event.target.value)} />
 
             </div>
             <br></br>
             <div className="form-group">
 
-              <TextField id="outlined-basic" className="form-control" type="password" minLength={8} onChange={(event) => setPassword(event.target.value)} label="Enter password" variant="outlined" />
+              <TextField id="outlined-basic" required
+                inputProps={{
+                  minLength: 8,
+                  maxLength: 10
+                }} name="password" className="form-control" type="password" onChange={(event) => setPassword(event.target.value)} label="Enter password" variant="outlined" />
 
             </div>
             <br></br>
 
-            <div className="form-group">
 
-              <TextField id="outlined-basic" type="Phone" onChange={(event) => setPhone(event.target.value)} className="form-control" label="Enter Bio" variant="outlined" />
-
-            </div>
-            <br></br>
 
             <div className="form-group">
               <h5>Choose your Profession</h5>
@@ -117,7 +116,7 @@ function Registration() {
                 </RadioGroup>
               </FormControl>
               <hr></hr>
-              <Checkbox /><>Allow to all terms and conditions.</>
+              <Checkbox required />Allow to all terms and conditions.
             </div>
 
 
